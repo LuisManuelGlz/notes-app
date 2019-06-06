@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{page_title} | Notes App
+        //- bootstrap 4 
+        link(rel="stylesheet", href="../../porsinohayinternet/bootstrap-4.3.1-dist/css/bootstrap.min.css")
+        //- font awesome
+        link(rel="stylesheet", href="../../porsinohayinternet/fontawesome-free-5.8.2-web/css/all.min.css")
+        //- custom css
+        link(rel="stylesheet", href="../../stylesheets/main.css")
+    body
+        nav(class="navbar navbar-expand-lg navbar-dark bg-dark")
+            div(class="container")
+                a(class="navbar-brand" href="/") Notes App
+                button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+                    span(class="navbar-toggler-icon")
+                div(class="collapse navbar-collapse" id="navbarNav")
+                    ul(class="navbar-nav")
+                        li(class="nav-item active")
+                            a(class="nav-link" href="/") Home
+                        li(class="nav-item")
+                            a(class="nav-link" href="/about") About
+                    ul(class="navbar-nav ml-auto")
+                        if user
+                            li(class="nav-item dropdown")
+                                a(class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true") Notes
+                                div(class="dropdown-menu" aria-labelledby="navbarDropdown")
+                                    a(class="dropdown-item" href="/notes") All notes
+                                    a(class="dropdown-item" href="/notes/add") Add note
+                                    div(class="dropdown-divider")
+                                    a(class="dropdown-item" href="/users/logout") Log out
+                        else
+                            p= user
+                            li(class="nav-item")
+                                a(class="nav-link" href="/users/login") Log in
+                            li(class="nav-item")
+                                a(class="nav-link" href="/users/signup") Sign up
+        div(class="container mt-5")
+            include messages
+            include errors
+            block content
+
+        //- scripts
+        script(src="../../porsinohayinternet/jquery-3.4.1.min.js")
+        script(src="../../porsinohayinternet/popper.min.js")
+        script(src="../../porsinohayinternet/bootstrap-4.3.1-dist/js/bootstrap.min.js")

@@ -1,0 +1,15 @@
+extends blocks/layout
+
+block content
+    div(class="col-md-4 mx-auto")
+        div(class="card")
+            div(class="card-header text-center")
+                h3 New note
+            div(class="card-body")
+                form(action="/notes/add" method="post")
+                    div(class="form-group")
+                        input(type="text" class="form-control" name="title" value=title placeholder="Title" autofocus)
+                    div(class="form-group")
+                        textarea(name="description" class="form-control" placeholder="Description") #{description}
+                    div(class="form-group")
+                        button(type="submit" class="btn btn-primary btn-block") Save
