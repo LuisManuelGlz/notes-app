@@ -36,7 +36,8 @@ router.get("/notes/edit/:id", isAuthenticated, (req, res) => {
     .then((note) => {
         res.render("edit-note", {
             page_title: "Edit note",
-            note
+            note,
+            errors: []
         });
     })
     .catch((err) => {
